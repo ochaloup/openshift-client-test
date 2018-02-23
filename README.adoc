@@ -1,0 +1,20 @@
+= fabric8 OpenShift java client test
+
+Simple test (a class) to run OpenShift client queries.
+
+== HOWTO
+
+```bash
+mvn clean package
+
+oc get pods
+# choose some pod with java installed
+
+oc cp target/openshift-client-1.0-SNAPSHOT-jar-with-dependencies.jar <pod_name>:/tmp/
+
+oc rsh <pod_name>
+
+cd /tmp
+
+java -jar openshift-client-1.0-SNAPSHOT-jar-with-dependencies.jar
+```
